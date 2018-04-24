@@ -48,7 +48,7 @@ class App extends Component {
     const locale = this.getLocale()
     return (
       <IntlProvider locale={locale.locale} messages={locale.messages}>
-        <Router basename="/app">
+        <Router basename="/webapp">
           <div className="App">
             <Header />
             <Route exact path="/" component={Home} />
