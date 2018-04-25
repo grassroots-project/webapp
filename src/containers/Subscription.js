@@ -81,7 +81,7 @@ class Subscription extends Component {
   }
 
   onSend = async () => {
-    const {name, email, wallet} = this.state;
+    const { name, email, wallet } = this.state;
     if (!name || !email) {
       // Add error message
       return
@@ -108,48 +108,44 @@ class Subscription extends Component {
       // console.log('error', error)
     }
   }
+
+  refreshFeedItems = async (purge = false, hash = this.props.match.params.hash) => {
+
+  };
+
   render() {
     const intl = this.props.intl
+    const { hash } = this.props.match.params;
+    // console.log(this.props.match.params)
     return (
       <div>
-        <SectionHeader>
-          <h2>
-            {intl.formatMessage({ id: 'Fund Subscription' })}
-          </h2>
-          <p>
-            本次報名將使用智能合約 (Smart Contract) 作為報名機制，收取 0.015 ETH 作為活動費用。
-          </p>
-        </SectionHeader>
         <Container>
           <Row>
             <Col sm="12" md={{ size: 8, offset: 2 }}>
+              <h2>
+                {intl.formatMessage({ id: 'Fund Subscription' })}
+              </h2>
+              <p>
+                本次報名將使用智能合約 (Smart Contract) 作為報名機制，收取 0.015 ETH 作為活動費用。
+              </p>
+
               <div>
                 {/* {this.state.initialized && this.renderAlert()} */}
               </div>
+              {
+                  this.state.initialized && (
+                    <FormGroup>
+                      <Label for="registration-amount">{intl.formatMessage({ id: 'Subscription Amount' })}</Label>
+                      <Input plaintext name="registration-amount">{this.state.registrationAmount} / {this.state.maxAttendee}</Input>
+                    </FormGroup>
+                  )
+                }
               <Form>
-                <FormGroup>
-                  <Label for='name'>{intl.formatMessage({ id: 'Name / Nickname' })}</Label>
-                  <Input type='text' name='name' id='name' value={this.state.name || ''} onChange={this.onNameChange} />
-                </FormGroup>
-                <FormGroup>
-                  <Label for='email'>{intl.formatMessage({ id: 'Email' })}</Label>
-                  <Input type='email' name='email' id='email' value={this.state.email || ''} />
-                </FormGroup>
                 <FormGroup>
                   <Label for='share'>{intl.formatMessage({ id: 'Subscription Share' })}</Label>
                   <Input type='text' name='share' id='share' value={this.state.share || ''} />
-                  <Label for='transfer_amount'>{intl.formatMessage({ id: 'Transfer Amount' })}</Label>
-                  <Input type='text' name='transfer_amount' id='transfer_amount' value={this.state.transfer_amount || ''} />
-                  <Label for='transfer_bank'>{intl.formatMessage({ id: 'Transfer Bank' })}</Label>
-                  <Input type='text' name='transfer_bank' id='transfer_bank' value={this.state.transfer_bank || ''} />
                 </FormGroup>
-                <FormGroup>
-                  <Label for='fee'>{intl.formatMessage({ id: 'Subscription Fee' })}</Label>
-                  <Input type='number' name='fee' id='fee' defaultValue={this.state.fee} />
-                  <FormText color="muted">
-                    {intl.formatMessage({ id: 'feeDescription' })}
-                  </FormText>
-                </FormGroup>
+
                 {
                   this.state.wallet && (
                     <FormGroup>
@@ -158,14 +154,7 @@ class Subscription extends Component {
                     </FormGroup>
                   )
                 }
-                {
-                  this.state.initialized && (
-                    <FormGroup>
-                      <Label for="registration-amount">{intl.formatMessage({ id: 'Subscription Amount' })}</Label>
-                      <Input plaintext name="registration-amount">{this.state.registrationAmount} / {this.state.maxAttendee}</Input>
-                    </FormGroup>
-                  )
-                }
+
               </Form>
               <Button color='primary' onClick={this.onSend}>
                 {intl.formatMessage({ id: 'Subscription With MetaMask' })}

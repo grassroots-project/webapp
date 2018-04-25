@@ -19,9 +19,22 @@ import Header from '../components/Header';
 // addLocaleData(enUS.data)
 addLocaleData(zhHans.data)
 
+const { REACT_APP_NAME: APP_NAME, REACT_APP_BASENAME: BASENAME } = process.env;
+
+const Storage = (storage = localStorage) => ({
+  getItem(key) {
+    return localStorage.getItem(`${APP_NAME}_${key}`);
+  },
+  setItem(key, value) {
+    return localStorage.setItem(`${APP_NAME}_${key}`, value);
+  }
+});
+
+
 class App extends Component {
   constructor(props) {
     super(props);
+    this.storage = Storage();
     this.state = {
       web3: true,
       funds: {},
@@ -46,13 +59,14 @@ class App extends Component {
 
   render() {
     const locale = this.getLocale()
+    console.log(BASENAME)
     return (
       <IntlProvider locale={locale.locale} messages={locale.messages}>
         <Router basename="/webapp">
           <div className="App">
             <Header />
             <Route exact path="/" component={Home} />
-            <Route path="/fund" component={Fund} d={this}/>
+            <Route path="/fund/:hash" component={Fund}/>
             <Route path="/subscription/:hash" component={Subscription} />
             <Route path="/redemption/:hash" component={Redemption} />
             <Route path="/register" component={Register} />

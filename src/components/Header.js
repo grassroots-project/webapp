@@ -57,8 +57,8 @@ class Header extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar className="ml-auto">
               <NavItem>
-                <NavLink tag={Link} to="/fund">
-                  {intl.formatMessage({ id: 'Fund' })}
+                <NavLink tag={Link} to="/register">
+                  {intl.formatMessage({ id: 'Register' })}
                 </NavLink>
               </NavItem>
               <NavItem>

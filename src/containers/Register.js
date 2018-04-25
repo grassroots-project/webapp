@@ -1,11 +1,14 @@
+import React, { Component } from 'react'
+
 import Eth from 'ethjs'
 import firebase from 'firebase'
-import React, { Component } from 'react'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+
+import { Button, Form, FormGroup, Label, Input, Container, Row, Col, FormText } from 'reactstrap'
 import { injectIntl } from 'react-intl'
-import { Container, Row, Col, FormText } from 'reactstrap'
+
 import SectionHeader from '../components/SectionHeader'
 import AlertHelper from '../components/AlertHelper'
+
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
@@ -158,7 +161,6 @@ class Register extends Component {
       const startTime = moment(REGISTRATION_TIME).format('llll');
       notYetAlert = <AlertHelper state='not-yet-begun' startTime={startTime} />;
     };
-
     return (
       <div>
         <SectionHeader>
@@ -166,7 +168,7 @@ class Register extends Component {
             {intl.formatMessage({ id: 'Register' })}
           </h2>
           <p>
-            {intl.formatMessage({ id: 'registerDescription' }, { fee: CONTRACT_FEE })}
+          本次报名将使用智能合约 (Smart Contract) 作为报名机制，收取 0.015 ETH 作为活动费用。在填写表单前，请先安装支援 web3 的浏览器或延伸套件，桌面版的 Chrome 或 Firefox 请安装 MetaMask，手机请安装 Cipher 或 Trust 后并填写下面表单。
           </p>
         </SectionHeader>
         <Container className='py-3'>
