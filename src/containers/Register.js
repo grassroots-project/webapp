@@ -6,6 +6,10 @@ import firebase from 'firebase'
 import { Button, Form, FormGroup, Label, Input, Container, Row, Col, FormText } from 'reactstrap'
 import { injectIntl } from 'react-intl'
 
+import Footer from '../components/Footer';
+import Main from '../components/Main'
+import Header from '../components/Header';
+
 import SectionHeader from '../components/SectionHeader'
 import AlertHelper from '../components/AlertHelper'
 
@@ -163,6 +167,7 @@ class Register extends Component {
     };
     return (
       <div>
+        <Header />
         <SectionHeader>
           <h2>
             {intl.formatMessage({ id: 'Register' })}
@@ -179,6 +184,9 @@ class Register extends Component {
           </Row>
           <Row>
             <Col sm='12' md={{ size: 8, offset: 2 }}>
+            <div className='my-3'>
+                {this.state.initialized && this.renderAlert()}
+              </div>
               <Form>
                 <FormGroup>
                   <Label for='name'>{intl.formatMessage({ id: 'Name / Nickname' })}</Label>
@@ -215,12 +223,11 @@ class Register extends Component {
               <Button disabled={notYet || this.registrationEnd() || this.state.hadTicket || !this.state.wallet || this.state.transaction || !this.state.validNetwork} color='primary' onClick={this.onSend}>
                 {intl.formatMessage({ id: 'Register With MetaMask' })}
               </Button>
-              <div className='my-3'>
-                {this.state.initialized && this.renderAlert()}
-              </div>
+
             </Col>
           </Row>
         </Container>
+        <Footer />
       </div>
     )
   }

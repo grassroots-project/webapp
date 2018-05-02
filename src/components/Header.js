@@ -50,13 +50,13 @@ class Header extends Component {
         <Navbar color="light" light fixed="top" expand="md">
         <Container>
           <NavbarBrand tag={Link} to="/">
-            <img className="align-middle d-inline-block" src={Logo} width="40" height="40" alt="Taipei Ethereum Meetup Logo" />
-            <span className="align-middle">Fund-Project</span>
+            <img className="align-middle d-inline-block" src={Logo} width="40" height="40" alt="Grassroots-Project Logo" />
+            <span className="align-middle">Grassroots</span>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar className="ml-auto">
-              <NavItem>
+              {/* <NavItem>
                 <NavLink tag={Link} to="/register">
                   {intl.formatMessage({ id: 'Register' })}
                 </NavLink>
@@ -70,7 +70,7 @@ class Header extends Component {
                 <NavLink tag={Link} to="/knowledge">
                   {intl.formatMessage({ id: 'Knowledge' })}
                 </NavLink>
-              </NavItem>
+              </NavItem> */}
 
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>

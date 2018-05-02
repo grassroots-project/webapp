@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Switch, Route } from 'react-router-dom'
 import { addLocaleData, IntlProvider } from 'react-intl'
 // import enUS from './locales/en-US'
 import zhHans from '../locales/zh-Hans'
@@ -13,8 +13,7 @@ import Subscription from './Subscription'
 import Redemption from './Redemption'
 import Refund from './Refund';
 import Admin from './Admin';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
+
 
 // addLocaleData(enUS.data)
 addLocaleData(zhHans.data)
@@ -62,20 +61,19 @@ class App extends Component {
     console.log(BASENAME)
     return (
       <IntlProvider locale={locale.locale} messages={locale.messages}>
-        <Router basename="/webapp">
-          <div className="App">
-            <Header />
+        <div className="App">
+          <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/fund/:hash" component={Fund}/>
-            <Route path="/subscription/:hash" component={Subscription} />
-            <Route path="/redemption/:hash" component={Redemption} />
+            <Route exact path="/fund/" component={Fund} />
+            <Route path="/fund/:hash" component={Fund} />
+            <Route path="/fund/:hash/subscription" component={Subscription} />
+            <Route path="/fund/:hash/redemption" component={Redemption} />
             <Route path="/register" component={Register} />
             <Route path="/refund" component={Refund} />
             <Route path="/knowledge" component={Knowledge} />
             <Route path="/admin" component={Admin} />
-            <Footer />
-          </div>
-        </Router>
+          </Switch>
+        </div>
       </IntlProvider>
     );
   }

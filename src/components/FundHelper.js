@@ -22,8 +22,8 @@ class FundHelper extends Component {
           <td>{fund.share}</td>
           <td>
             <ButtonGroup>
-              <Button color="primary" onClick={() => this.handleSubscription(fund.hash)}>申购</Button>
-              <Button color="warning" onClick={() => this.handleRedemption(fund.hash)}>赎回</Button>
+              <Button color="primary" onClick={() => this.props.handleSubscription(fund.hash)}>申购</Button>
+              <Button color="warning" onClick={() => this.props.handleRedemption(fund.hash)}>赎回</Button>
             </ButtonGroup>
           </td>
         </tr>
@@ -48,14 +48,6 @@ class FundHelper extends Component {
     )
   }
 
-  handleSubscription(hash) {
-    window.location.assign('/subscription/' + hash );
-
-  }
-
-  handleRedemption(hash) {
-    window.location.assign('/redemption/' + hash );
-  }
 
   render() {
     return (

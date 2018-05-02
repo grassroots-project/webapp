@@ -5,6 +5,11 @@ import firebase from 'firebase';
 import { Table, Button, ButtonGroup } from 'reactstrap';
 import saveAs from 'save-as'
 
+
+import Footer from '../components/Footer';
+import Main from '../components/Main'
+import Header from '../components/Header';
+
 import {
   ETHERSCAN_URL
 } from '../constants';
@@ -50,8 +55,8 @@ class Admin extends Component {
         }
       });
   }
-  
-  
+
+
   onAttendClick = (uid, attended) => {
     const user = this.state.users[uid];
     const updated = {};
@@ -150,15 +155,19 @@ class Admin extends Component {
       );
     } else {
       return (
-        <div className="container">
-          <div className="my-3">
-            <Button color="primary" onClick={this.updateTransaction}>Get Transactions</Button>
-            <Button color="primary" onClick={this.downloadCSV}>Download CSV</Button>
-          </div>
-          {this.renderUsersTable()}
-          <div className="my-3 text-center">
-            <Button color="primary" onClick={() => firebase.auth().signOut()}>登出</Button>
-          </div>
+        <div>
+          <Header />
+          <Main>
+            <div className="my-3">
+              <Button color="primary" onClick={this.updateTransaction}>Get Transactions</Button>
+              <Button color="primary" onClick={this.downloadCSV}>Download CSV</Button>
+            </div>
+            {this.renderUsersTable()}
+            <div className="my-3 text-center">
+              <Button color="primary" onClick={() => firebase.auth().signOut()}>登出</Button>
+            </div>
+          </Main>
+          <Footer />
         </div>
       );
     }

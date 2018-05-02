@@ -18,4 +18,4 @@ export const NETWORK_ID = PRODUCTION ? '1' : '5777'; // 1 = mainnet, 3 = ropsten
 export const NETWORK_NAME = PRODUCTION ? 'Mainnet' : 'Localhost';
 export const ETHERSCAN_URL = PRODUCTION ?
   'https://etherscan.io' :
-  '';
+  ''; 

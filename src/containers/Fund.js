@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { Switch, Route } from 'react-router-dom'
 import ethjs from 'ethjs';
 import firebase from 'firebase';
 
@@ -7,8 +8,13 @@ import { Container } from 'reactstrap';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
+import Footer from '../components/Footer';
+import Main from '../components/Main'
+import Header from '../components/Header';
+
 import FundHelper from '../components/FundHelper';
 import SectionHeader from '../components/SectionHeader';
+
 import {
   CONTRACT_ABI,
   CONTRACT_ADDRESS,
@@ -91,18 +97,30 @@ class Fund extends Component {
     clearInterval(this.checkWeb3IntervalId)
     this.checkWeb3IntervalId = null
   }
+
+  
+  handleSubscription(hash) {
+    console.log(this.props)
+    this.props.history.push('fund')
+    // window.location.assign('/subscription/' + hash );
+
+  }
+
+  handleRedemption(hash) {
+    this.props.history.push('fund')
+    // window.location.assign('/redemption/' + hash );
+  }
   
   render() {
     // const intl = this.props.intl
     // console.log(this.props)
     return (
       <div>
-        <SectionHeader>
-          <h2>Fund</h2>
-        </SectionHeader>
+        <Header />
         <Container>
-        <FundHelper funds={this.state.funds}/>
+          <FundHelper funds={this.state.funds} />
         </Container>
+        <Footer />
       </div>
     );
   }
