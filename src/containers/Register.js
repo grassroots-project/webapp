@@ -168,14 +168,14 @@ class Register extends Component {
     return (
       <div>
         <Header />
-        <SectionHeader>
-          <h2>
+        {/* <Container className='py-3'>
+          <h1>
             {intl.formatMessage({ id: 'Register' })}
-          </h2>
+          </h1>
           <p>
           本次报名将使用智能合约 (Smart Contract) 作为报名机制，收取 0.015 ETH 作为活动费用。在填写表单前，请先安装支援 web3 的浏览器或延伸套件，桌面版的 Chrome 或 Firefox 请安装 MetaMask，手机请安装 Cipher 或 Trust 后并填写下面表单。
           </p>
-        </SectionHeader>
+        </Container> */}
         <Container className='py-3'>
           <Row>
             <Col sm='12' md={{ size: 8, offset: 2 }}>

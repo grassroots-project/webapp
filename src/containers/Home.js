@@ -27,16 +27,17 @@ class Home extends Component {
             <Row>
               <Col sm="6" md="6">
                 <div className="showcase-left">
-                  {/* <img src={require('../assets/image1.jpg')} /> */}
+                  <img src={require('../assets/Building.png')} className="rounded"/>
                 </div>
               </Col>
               <Col sm="6" md="6">
                 <div className="showcase-right" >
-                  <h1>Grassroots Project</h1>
-                  <p>使用智能合约和ERC20 Token来提高投资者的透明度和流动性。</p>
+                  <h1>我们的目标</h1>
+                  <p>利用智能合约来减少基金管理第三方的需求，提高投资者的透明度。</p>
+                  <p>遵守ERC20 Token来提高投资者流动性。</p>
                 </div>
                 <br />
-                <Button>Read More</Button>
+                <Button outline >Read More</Button>
               </Col>
             </Row>
           </Container>
@@ -45,18 +46,31 @@ class Home extends Component {
           <Container>
             <Row>
               <Col sm="12" md={{ size: 8, offset: 2 }}>
-                <h1 className="display-3">目标</h1>
-                <p className="lead">利用区块链技术来减少对托管人，会计师，传统资产管理审计师等基金管理第三方的需求。</p>
-                <p className="lead">
-                  <Button color="primary">Learn More</Button>
+                <p>由于我们还没有公开发布，想要在第一时间构建自己基金，请在下面</p>
+                <p className="customer">
+                <Link to="/register"><Button outline color="primary">申请加入</Button></Link>
                 </p>
               </Col>
             </Row>
           </Container>
         </section>
-        <section id="info">
-        </section>
-
+        {/* <section id="info">
+          <Container>
+          <Row>
+              <Col sm="6" md="6">
+                <div className="border-left">
+                  
+                </div>
+              </Col>
+              <Col sm="6" md="6">
+                <div className="border-bottom" >
+                  <h1>Grassroots Project</h1>
+                  <p>使用智能合约和ERC20 Token来提高投资者的透明度和流动性。</p>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </section> */}
         <Footer />
       </div>
     );

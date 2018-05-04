@@ -47,7 +47,7 @@ class Header extends Component {
   render() {
     const intl = this.props.intl
     return (
-        <Navbar color="light" light fixed="top" expand="md">
+      <Navbar color="light" light fixed="top" expand="md">
         <Container>
           <NavbarBrand tag={Link} to="/">
             <img className="align-middle d-inline-block" src={Logo} width="40" height="40" alt="Grassroots-Project Logo" />
@@ -56,9 +56,14 @@ class Header extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar className="ml-auto">
+              <NavItem>
+                <NavLink tag={Link} to="/investors">
+                  {intl.formatMessage({ id: 'Investors' })}
+                </NavLink>
+              </NavItem>
               {/* <NavItem>
-                <NavLink tag={Link} to="/register">
-                  {intl.formatMessage({ id: 'Register' })}
+                <NavLink tag={Link} to="/investors">
+                  {intl.formatMessage({ id: 'Investors' })}
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -87,8 +92,8 @@ class Header extends Component {
               </UncontrolledDropdown>
             </Nav>
           </Collapse>
-          </Container>
-        </Navbar>
+        </Container>
+      </Navbar>
 
     );
   }

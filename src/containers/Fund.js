@@ -12,6 +12,7 @@ import Footer from '../components/Footer';
 import Main from '../components/Main'
 import Header from '../components/Header';
 
+import Subscription from './Subscription'
 import FundHelper from '../components/FundHelper';
 import SectionHeader from '../components/SectionHeader';
 
@@ -98,11 +99,11 @@ class Fund extends Component {
     this.checkWeb3IntervalId = null
   }
 
-  
+
   handleSubscription(hash) {
     console.log(this.props)
     this.props.history.push('fund')
-    // window.location.assign('/subscription/' + hash );
+    // window.location.assign('fund/subscription/' + hash );
 
   }
 
@@ -110,17 +111,20 @@ class Fund extends Component {
     this.props.history.push('fund')
     // window.location.assign('/redemption/' + hash );
   }
-  
+
   render() {
     // const intl = this.props.intl
-    // console.log(this.props)
+    
     return (
       <div>
-        <Header />
+        {/* <Switch>
+            <Route exact path="/fund/subscription/:hash" component={Subscription} />
+        </Switch> */}
+        {/* <Header /> */}
         <Container>
           <FundHelper funds={this.state.funds} />
         </Container>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

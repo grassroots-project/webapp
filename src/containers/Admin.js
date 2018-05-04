@@ -2,7 +2,8 @@ import Eth from 'ethjs'
 import React, { Component } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
-import { Table, Button, ButtonGroup } from 'reactstrap';
+import { Container, Table, Button, ButtonGroup } from 'reactstrap';
+
 import saveAs from 'save-as'
 
 
@@ -146,7 +147,7 @@ class Admin extends Component {
   }
 
   render() {
-
+    console.log(this.props)
     if (!this.state.signedIn) {
       return (
         <div>
@@ -156,8 +157,7 @@ class Admin extends Component {
     } else {
       return (
         <div>
-          <Header />
-          <Main>
+          <Container>
             <div className="my-3">
               <Button color="primary" onClick={this.updateTransaction}>Get Transactions</Button>
               <Button color="primary" onClick={this.downloadCSV}>Download CSV</Button>
@@ -166,8 +166,7 @@ class Admin extends Component {
             <div className="my-3 text-center">
               <Button color="primary" onClick={() => firebase.auth().signOut()}>登出</Button>
             </div>
-          </Main>
-          <Footer />
+          </Container>
         </div>
       );
     }
