@@ -20,7 +20,7 @@ const config = {
 firebase.initializeApp(config);
 
 ReactDOM.render((
-  <BrowserRouter basename="/webapp">
+  <BrowserRouter basename="/">
     <App />
   </BrowserRouter>
 ), document.getElementById('root'));
