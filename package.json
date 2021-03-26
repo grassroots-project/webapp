@@ -28,7 +28,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://grassroots-project.github.io/webapp",
+  "homepage": "https://www.grassroots-project.app/",
   "devDependencies": {
     "gh-pages": "^1.1.0"
   }
